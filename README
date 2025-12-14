@@ -1,5 +1,24 @@
-The MyUBAT landing page serves as a vital digital interface, yet relying on direct repository access for static assets creates avoidable latency. As our user base grows, fetching files directly from the origin server introduces bottlenecks that compromise the immediacy of the user experience and overall page performance.
+# MyUBAT Landing Page Assets
 
-To address this, we are leveraging jsDelivr, a high-performance public CDN, to serve assets directly from our GitHub repository. By utilizing jsDelivr’s robust multi-CDN infrastructure, we effectively distribute our code across a global network of edge servers, ensuring that users retrieve data from the location physically closest to them.
+## Overview
+
+The MyUBAT landing page serves as a vital digital interface, yet relying solely on direct repository access for static assets creates avoidable latency. As our user base grows, fetching files directly from the origin server introduces bottlenecks that compromise the immediacy of the user experience and overall page performance.
+
+To address this, we are leveraging **jsDelivr**, a high-performance public CDN, to serve assets directly from this GitHub repository. By utilizing jsDelivr’s robust multi-CDN infrastructure, we effectively distribute our code across a global network of edge servers, ensuring that users retrieve data from the location physically closest to them.
 
 This integration significantly reduces network latency and optimizes Time to First Byte (TTFB). By bridging our GitHub repository with jsDelivr’s delivery network, we ensure near-instantaneous page rendering, providing MyUBAT users with a frictionless and responsive browsing experience that reflects our technical standards.
+
+---
+
+## Usage
+
+To utilize the CDN-hosted assets, reference the files using the jsDelivr URL structure. While it is possible to link to a branch (e.g., `@main`), it is best practice to link to specific release tags in production.
+
+**Basic Structure:**
+`https://cdn.jsdelivr.net/gh/<username>/<repo>@<version>/<path-to-file>`
+
+**Production Example:**
+
+```html
+<link rel="stylesheet" href="[https://cdn.jsdelivr.net/gh/MyUBAT/landing-page-assets@v1.0.0/styles/main.css](https://cdn.jsdelivr.net/gh/MyUBAT/landing-page-assets@v1.0.0/styles/main.css)">
+<script src="[https://cdn.jsdelivr.net/gh/MyUBAT/landing-page-assets@v1.0.0/scripts/app.js](https://cdn.jsdelivr.net/gh/MyUBAT/landing-page-assets@v1.0.0/scripts/app.js)"></script>
